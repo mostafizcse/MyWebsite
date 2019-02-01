@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="zxx" class="no-js">
+{% load static %}
+<head>
+    <!-- Mobile Specific Meta -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Favicon-->
+    <link rel="shortcut icon" href="{% static 'img/fav.ico' %}">
+    <!-- Author Meta -->
+    <meta name="author" content="codethemes">
+    <!-- Meta Description -->
+    <meta name="description" content="">
+    <!-- Meta Keyword -->
+    <meta name="keywords" content="">
+    <!-- meta character set -->
+    <meta charset="UTF-8">
+    <!-- Site Title -->
+    <title>Bravapp - Game app landing HTML5 Template</title>
+
+    <link href="#" rel="stylesheet">
+    <!--
+        CSS
+        https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700
+        =============================================-->
+
+    <link rel="stylesheet" href="{% static 'css/themify-icons.css' %}">
+    <link rel="stylesheet" href="{% static 'css/linearicons.css' %}">
+    <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'css/magnific-popup.css' %}">
+    <link rel="stylesheet" href="{% static 'css/nice-select.css' %}">
+    <link rel="stylesheet" href="{% static 'css/animate.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/owl.carousel.css' %}">
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+
+</head>
+<body>
+    <!-- start Header Area -->
+    <header id="header">
+        <div class="container-fluid">
+            <div class="row align-items-center justify-content-between d-flex">
+                <div id="logo">
+                    <a href="index.html"><img src="img/logo-d.png" alt="" title="" /></a>
+                </div>
+                <nav id="nav-menu-container">
+                    <ul class="nav-menu align-items-center d-flex">
+                        <li class="menu-has-children"><a href="">{{ mymanue.Example.name }}</a>
+                         {% for naggs  in abcdef %}
+                            <li class="menu-has-children"><a href="">{{ naggs.name }}</a>
+                                <ul>
+                                  {% for i in mymanue %}
+                                    <li><a href="{% url 'mdetails' i.id %}">{{ i.Example }}</a></li>
+                                   {% endfor %}
+                                </ul>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </nav>
+                <!-- #nav-menu-container -->
+            </div>
+        </div>
+    </header>
+    <!-- End Header Area -->
+
+
+    <!-- Start slider Area -->
+
+
+    <!-- start footer Area -->      
+    <footer class="footer-area">
+        <img class="pattern-right" src="img/light-version/pattern-right.png" alt="">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3  col-md-6 col-sm-6">
+                    <div class="single-footer-widget">
+                        <h4>About Us</h4>
+                        <p>
+                            If you own an Iphone, you’ve probably already worked out how much fun it is to use it to watch movies-it has that nice big screen, and the sound quality is surprisingly good too. Now imagine if you knew how to download.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-lg-2  col-md-6 col-sm-6">
+                    <div class="single-footer-widget">
+                        <h4>Features</h4>
+                        <ul class="menu-list">
+                            <li><a href="#">Jobs</a></li>
+                            <li><a href="#">Brand Assets</a></li>
+                            <li><a href="#">Investor Relations</a></li>
+                            <li><a href="#">Terms of Service</a></li>
+                        </ul>
+                    </div>
+                </div>  
+                <div class="col-lg-2  col-md-6 col-sm-6">
+                    <div class="single-footer-widget">
+                        <h4>Resources</h4>
+                        <ul class="menu-list">
+                            <li><a href="#">Guides</a></li>
+                            <li><a href="#">Research</a></li>
+                            <li><a href="#">Experts</a></li>
+                            <li><a href="#">Agencies</a></li>
+                        </ul>
+                    </div>
+                </div>                                              
+                <div class="col-lg-5  col-md-6 col-sm-6">
+                    <div class="single-footer-widget">
+                        <h4>Newsletter</h4>
+                        <p>You can trust us. we only send  offers, not a single spam.</p>
+                        <div class="d-flex flex-row" id="mc_embed_signup">
+                              <form class="navbar-form" action="https://spondonit.us12.list-manage.com/subscribe/post?u=1462626880ade1ac87bd9c93a&amp;id=92a4423d01" method="get">
+                                <div class="input-group add-on align-items-center d-flex">
+                                    <input class="form-control" name="EMAIL" placeholder="Your email address" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Your email address'" required="" type="email">
+                                  <div class="input-group-btn">
+                                    <button class="genric-btn"><span class="lnr lnr-arrow-right"></span></button>
+                                  </div>
+                                </div>
+                                  <div class="info mt-20"></div>                                        
+                              </form>
+                        </div>
+                    </div>
+                </div>                      
+            </div>
+            <div class="footer-bottom row align-items-center">
+                <p class="footer-text m-0 col-lg-6 col-md-12">Copyright © 2018 All rights reserved to <a href="https://themeforest.net/user/codethemes/portfolio">Code Themes</a></p>
+                <div class="footer-social col-lg-6 col-md-12">
+                    <a href="#"><i class="fa fa-facebook"></i></a>
+                    <a href="#"><i class="fa fa-twitter"></i></a>
+                    <a href="#"><i class="fa fa-dribbble"></i></a>
+                    <a href="#"><i class="fa fa-behance"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>   
+    <!-- End footer Area -->
+
+    <script src="js/vendor/jquery-2.2.4.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/vendor/bootstrap.min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBhOdIF3Y9382fqJYt5I_sswSrEw5eihAA"></script>    
+    <script src="js/superfish.min.js"></script>
+    <script src="js/jquery.ajaxchimp.min.js"></script>
+    <script src="js/jquery.magnific-popup.min.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/jquery.tabs.min.js"></script>
+    <script src="js/mn-accordion.js"></script>    
+    <script src="js/jquery.nice-select.min.js"></script>
+    <script src="js/mail-script.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>

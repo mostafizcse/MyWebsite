@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% load static %}
+
+<!-- Start page-content Area -->
+{% block header %}
+<!-- Start page-header Area -->
+<section class="page-header-area">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6 page-header-left">
+                <h2>EMERGING TECHNOLOGIES</h2>
+                <p>
+                    Purposely built Geo-diverse Infrastruture to balance control,speed,security and scalability.
+                </p>
+            </div>
+            <div class="col-lg-6 page-header-right">
+                <ul>
+                    <li><a href="{% url 'index' %}">Home</a> <span class="lnr lnr-arrow-right"></span></li>
+                    <li><a href="{% url 'emerging_tecnologies' %}">Emerging Tecchnologies</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- End page-header Area -->
+{% endblock %}
+
+{% block content %}
+<!-- Start page-content Area -->
+<section class="table-variation-area area-gap">
+    <div class="container">
+        <div class="row">
+            <div class="table-variation-area area-gap">
+                {% for i in poost %}
+                <h1>{{ i.posttitle }}</h1><br><br>
+                <p>{{ i.subtitle }}</p>
+                <a class="genric-btn primary" href="{% url 'post' i.id %}">View more..</a><br><br>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End page-content Area -->
+ {% endblock %}
+
+
+

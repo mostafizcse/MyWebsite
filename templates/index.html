@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="zxx" class="no-js">
+{% load static %}
+<head>
+    <!-- Mobile Specific Meta -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Favicon-->
+    <link rel="shortcut icon" href="{% static 'img/fav.ico' %}">
+    <!-- Author Meta -->
+    <meta name="author" content="codethemes">
+    <!-- Meta Description -->
+    <meta name="description" content="">
+    <!-- Meta Keyword -->
+    <meta name="keywords" content="">
+    <!-- meta character set -->
+    <meta charset="UTF-8">
+    <!-- Site Title -->
+    <title>Bravapp - Game app landing HTML5 Template</title>
+
+    <link href="#" rel="stylesheet">
+    <!--
+        CSS
+        https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700
+        =============================================-->
+
+    <link rel="stylesheet" href="{% static 'css/themify-icons.css' %}">
+    <link rel="stylesheet" href="{% static 'css/linearicons.css' %}">
+    <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'css/magnific-popup.css' %}">
+    <link rel="stylesheet" href="{% static 'css/nice-select.css' %}">
+    <link rel="stylesheet" href="{% static 'css/animate.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/owl.carousel.css' %}">
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+
+</head>
+<body>
+
+    <!-- start Header Area -->
+    <header id="header">
+        <div class="container-fluid">
+            <div class="row align-items-center justify-content-between">
+                <div id="logo">
+                    {% for i in logo %}
+                          <a href="{% url 'index' %}"><img src="{{i.image.url}}" alt="" title=""/></a>
+                    {% endfor %}
+
+                </div>
+                <nav id="nav-menu-container">
+                    <ul class="nav-menu align-items-center d-flex">
+                        {% for i in mymanue %}
+                        <li class="menu-has-children"><a href="">{{ i.Example.name }}</a>
+                            <ul>
+                                <li><a href="{% url 'mdetails' i.id %}">{{ i.m_name }}</a></li>
+                            </ul>
+                        </li>
+                        {% endfor %}
+                        <li class="menu-has-children"><a href="">EMERGING TECHNOLOGIES</a>
+                            <ul>
+                                <li><a href="{% url 'emerging_tecnologies' %}">NEW POST</a></li>
+                            </ul>
+                        </li>
+                        <li class="menu-has-children"><a href="">Pages</a>
+                        </li>
+                        <li><a href="{% url 'event' %}">Event</a></li>
+                        <li><a href="{% url 'careers' %}">CAREER</a></li>
+                        <li><a href="{% url 'contact' %}">CONTACT</a></li>
+                           <!--<li class="signup-btn genric-btn"><a class="text-uppercase genric-btn primary" href="{% url 'login' %}">Login </a></li>-->
+
+                        {% if request.user.is_authenticated %}
+                        <li class="signup-btn genric-btn"><a class="text-uppercase genric-btn primary" href="{% url 'logout' %}">Logout</a></li>
+                        {% else %}
+                        <li class="signup-btn genric-btn"><a class="text-uppercase genric-btn primary" href="{% url 'login' %}">Login </a></li>
+                    {% endif %}
+                    </ul>
+                </nav>
+                <!-- #nav-menu-container -->
+            </div>
+        </div>
+                <!-- #nav-menu-container -->
+            </div>
+        </div>
+    </header>
+    <!-- End Header Area -->
+<div class="g1-gradient-color">
+
+    <!-- Start slider Area -->
+    <section class="slider-area relative">
+
+
+
+        <div class="container">
+            <div class="active-slider-carusel">
+                {% for A in sliderlist %}
+                <div class="row align-self justify-content-center fullscreen align-items-center item">
+                    <div class="col-lg-7 col-md-6 slider-left">
+                        <h1>{{ A.tital }}</h1>
+                        <p>{{ A.description }}
+                        </p>
+                        <a class="text-uppercase genric-btn primary" href="{{ A.linkurl }}">{{ A.linktital }}</a>
+                    </div>
+                    <div class="col-lg-5 col-md-6 slider-right">
+                        {% if A.sliderimage %}
+                        <img class="img-fluid mx-auto" src="{{ A.sliderimage.url }}" alt="">
+                        {% endif %}
+                    </div>
+                </div>
+                 {% endfor %}
+            </div>
+        </div>  
+            <div class="scroll-down">
+                <a href="#fature-area"><span></span></a>
+            </div>            
+    </section>
+    <!-- End slider Area -->
+    
+
+    <!-- Start feature Area -->
+    <section class="feature-area pt-120" id="fature-area">
+        <img class="pattern-bg" src="{% static 'img/pattern-bg.png' }" alt="">      
+        <div class="container">
+            <div class="row justify-content-center home-area-title">
+                {% for i in featurename %}
+                <div class="col-lg-8">
+                    <h1 class="text-white text-center">{{ i.title }}</h1>
+                    <p class="subs text-center mt-10 mx-auto">{{ i.details }}</p>
+                </div>
+                {% endfor %}
+            </div>              
+            <div class="row">
+                {% for i in featurrlist %}
+                <div class="col-lg-3 col-md-6">
+                    <div class="single-feature">
+                        <div class="icon">
+                            <img class="img-fluid mx-auto" src="{{ i.image.url }}" alt="">
+                        </div>
+                        <a href="#"><h4>{{ i.tital }}</h4></a>
+                        <p>{{ i.description }}</p>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>    
+    </section>
+    <!-- End feature Area -->    
+</div>
+ <!--<div class="g2-gradient-color">
+
+    <!-- Start screens Area
+    <section class="screens-area pt-120">
+        <img class="pattern-left" src="{% static 'img/pattern-left.png' %}" alt="">             
+        <div class="container-fluid">
+            <div class="row justify-content-center home-area-title">
+                <div class="col-lg-8">
+                    <h1 class="text-white text-center">Remarkable Game Screens</h1>
+                    <p class="subs text-center mt-10 mx-auto">
+                        While most people enjoy casino gambling, sports betting, lottery and bingo playing for the fun and excitement it provides, others may experience gambling.
+                    </p>                            
+                </div>
+            </div>               
+            <div class="row align-items-center screen-one justify-content-end pt-60">
+                <div class="col-lg-5 screen-left d-flex justify-content-end d-flex flex-column">
+                    <div class="title flex-row">
+                        <h2 class="text-white main-title">Horse Ride Screen</h2>
+                        <h2 class="text-white">150 XP</h2>
+                        <span class="line"></span>
+                    </div>
+                    <div class="details-section pt-80">
+                        <ul>
+                            <li class="d-flex flex-row align-items-center">
+                                <i class="ti-download"></i> <p><a href="#">Download Wallpaper</a></p>
+                            </li>
+                            <li class="d-flex flex-row align-items-center">
+                                <i class="ti-video-camera"></i> <p><a class="play-btn" href="http://www.youtube.com/watch?v=ARA0AxrnHdM">Watch Video Tutorial</a></p>
+                            </li>                            
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-7 screen-right justify-content-end">
+                    <img class="img-fluid" src="{% static 'img/screen1.png' %}" alt="">
+                </div>
+            </div>
+            <div class="row align-items-center screen-two justify-content-start">
+                <div class="col-lg-7 flex-md-last screen-left  justify-content-end ">
+                    <img class="img-fluid" src="{% static 'img/screen2.png' %}" alt="">
+                </div>                
+                <div class="col-lg-5 screen-right d-flex justify-content-start d-flex flex-column">
+                    <div class="title flex-row">
+                        <h2 class="text-white main-title">Muggle Fighting</h2>
+                        <h2 class="text-white">250 XP</h2>
+                        <span class="line"></span>
+                    </div>
+                    <div class="details-section pt-80">
+                        <ul>
+                            <li class="d-flex flex-row align-items-center">
+                                <i class="ti-download"></i> <p><a href="#">Download Wallpaper</a></p>
+                            </li>
+                            <li class="d-flex flex-row align-items-center">
+                                <i class="ti-video-camera"></i> <p><a class="play-btn" href="http://www.youtube.com/watch?v=ARA0AxrnHdM">Watch Video Tutorial</a></p>
+                            </li>                            
+                        </ul>
+                    </div>
+                </div>
+            </div>            
+         
+        </div>    
+    </section> -->
+    <!-- End screens Area -->
+    
+
+    <!-- Start info Area
+    <section class="info-area mt-120">
+        <img class="pattern-bg" src="{% static 'img/pattern-bg.png' %}" alt="">                  
+        <img class="pattern-right" src="{% static 'img/pattern-right.png' %}" alt="">        
+        <div class="container">
+            <div class="row justify-content-center home-area-title">
+                <div class="col-lg-12">
+                    <h1 class="text-white text-center">Surprisingly good that Makes us stand out</h1>
+                    <p class="subs text-center mt-10 mx-auto">
+                        Sony laptops are among the most well known laptops on today’s market. Sony is a name that over time has established itself as creating a solid product with a stellar reputation.
+                    </p>  
+                    <a class="text-uppercase genric-btn primary mt-20" href="#">Download For Desktop</a>
+                    <div class="info-img mt-100">
+                        <img class="img-fluid mx-auto" src="{% static 'img/info-img.png' %}" alt="">                  
+                    </div>          
+                </div>
+            </div>              
+        </div>    
+    </section>-->
+    <!-- End info Area -->
+
+ <!--</div>
+<div class="g3-gradient-color">
+
+    <!-- Start video Area
+    <section class="video-area pt-120">
+        <div class="container">
+            <div class="row justify-content-center align-items-center">
+                <div class="col-lg-12">
+                    <div class="about-video-right justify-content-center align-items-center d-flex relative">
+                        <div class="overlay overlay-bg"></div>
+                        <a class="play-btn" href="http://www.youtube.com/watch?v=ARA0AxrnHdM"><img class="img-fluid mx-auto" src="{% static 'img/play-btn.png' %}" alt=""></a>
+                    </div>
+                </div>
+            </div>
+        </div>  
+    </section>-->
+    <!-- End video Area -->
+
+    <!-- Start price Area
+    <section class="price-area pt-120">
+        <img class="pattern-left" src="{% static 'img/pattern-left.png' %}" alt="">             
+        <div class="container">
+            <div class="row justify-content-center home-area-title">
+                <div class="col-lg-8">
+                    <h1 class="text-white text-center">Choose Your Best Price</h1>
+                    <p class="text-center mt-10 mx-auto">
+                        LCD screens are uniquely modern in style, and the liquid crystals that make them work have allowed humanity to create slimmer, more portable technology.
+                    </p>                            
+                </div>
+            </div>                     
+            <div class="row mt-50">
+                <div class="col-lg-4">
+                    <div class="single-price">
+                        <div class="price-top price-top-1 relative">
+                            <div class="overlay overlay-bg"></div> 
+                            <h4>Standard User</h4>
+                        </div>
+                        <div class="price-middle">
+                            <h1 class="text-white">£9.99</h1>               
+                        </div>
+                        <div class="price-bottom">
+                            <ul>
+                                <li>Origin Download</li>
+                                <li>PS4 Download</li>
+                                <li>XBOX Download</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="single-price">
+                        <div class="price-top price-top-2 relative">
+                            <div class="overlay overlay-bg"></div> 
+                            <h4>Deluxe User</h4>
+                        </div>
+                        <div class="price-middle">
+                            <h1 class="text-white">£13.99</h1>               
+                        </div>
+                        <div class="price-bottom">
+                            <ul>
+                                <li>Origin Download</li>
+                                <li>PS4 Download</li>
+                                <li>XBOX Download</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>   
+                <div class="col-lg-4">
+                    <div class="single-price">
+                        <div class="price-top price-top-3 relative">
+                            <div class="overlay overlay-bg"></div> 
+                            <h4>Platinum User</h4>
+                        </div>
+                        <div class="price-middle">
+                            <h1 class="text-white">£19.99</h1>               
+                        </div>
+                        <div class="price-bottom">
+                            <ul>
+                                <li>Origin Download</li>
+                                <li>PS4 Download</li>
+                                <li>XBOX Download</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>                                                
+            </div>
+        </div>    
+    </section>-->
+        <!--</div>-->
+    <!-- End price Area -->    
+
+
+<div class="g4-gradient-color">  
+    <!-- Start team Area -->
+    <section class="team-area pt-120">
+        <img class="pattern-bg" src="{% static 'img/pattern-bg.png' %}" alt="">             
+        <div class="container">
+            <div class="row justify-content-center home-area-title">
+                <div class="col-lg-8">
+                    {% for i in teamtital %}
+                    <h1 class="text-white text-center">{{ i.name }}</h1>
+                    <p class="text-center mt-10 mx-auto">
+                        {{ i.deciption }}
+                    </p>
+                    {% endfor %}
+                </div>
+            </div>                       
+            <div class="row mt-50">
+                {% for i in team %}
+                <div class="col-lg-4">
+                    <div class="single-team">
+                        <div class="member-img">
+                            <img class="img-fluid mx-auto" src="{{i.image.url}}" alt="">
+                        </div>
+                        <div class="details">
+                            <h4 class="text-white">{{i.tital}}</h4>
+                            <p>{{i.subtitl}}</p>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+
+            </div>
+        </div>    
+    </section>
+    <!-- End team Area -->
+
+
+    <!-- Start game-review Area -->
+    <section class="game-review-area pt-120">
+        <div class="container">
+            <div class="row justify-content-center home-area-title">
+                {% for i in reviewtitle %}
+                <div class="col-lg-8">
+                    <h1 class="text-white text-center">{{ i.name }}</h1>
+                    <p class="text-center mt-10 mx-auto">
+                      {{ i.deciption }}
+                    </p>                            
+                </div>
+                {% endfor %}
+            </div>
+            <div class="row">
+                <div class="active-review-carusel pt-40">
+                    {% for i in reviews %}
+                    <div class="single-review">
+
+                          <a href="index.html"><img src="{{i.image.url}}" alt="" title=""/></a>
+                        <h4 class="text-white">{{ i.name }}</h4>
+                        <p>
+                            {{ i.deciption }}
+                        </p>
+
+                        <div class="star">
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>                                
+                        </div>                                  
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>    
+    </section>
+    <!-- End game-review Area -->
+
+
+    <!-- Start call-to-action Area
+    <section class="call-to-action-area pt-120">
+        <img class="pattern-bg" src="{% static 'img/pattern-bg.png' %}" alt="">                 
+        <div class="container-fluid">
+            <div class="call-to-action-wrap section-gap">
+                <div class="row justify-content-center home-area-title">
+                    <div class="col-lg-12">
+                        <h1 class="text-white text-center">Download For Smartphones</h1>
+                        <p class="text-white text-center mt-30 mx-auto">
+                            If you own an Iphone, you’ve probably already worked out how much fun it is to use it to watch movies-it has that nice big screen, and the sound quality is surprisingly good too. Now imagine.
+                        </p>                            
+                    </div>
+                </div>
+                <div class="row justify-content-center d-flex"> 
+                    <div class="download-button d-flex flex-row justify-content-center mt-30">      
+                        <div class="buttons flex-row d-flex">
+                            <i class="fa fa-apple" aria-hidden="true"></i>
+                            <div class="desc">
+                                <a href="#">
+                                    <p>
+                                        <span>Available</span> <br>
+                                        on App Store
+                                    </p>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="buttons flex-row d-flex">
+                            <i class="fa fa-android" aria-hidden="true"></i>
+                            <div class="desc">
+                                <a href="#">
+                                    <p>
+                                        <span>Available</span> <br>
+                                        on Play Store
+                                    </p>
+                                </a>
+                            </div>
+                        </div>
+                    </div>                      
+                </div>                        
+            </div>
+        </div>  
+    </section>-->
+    <!-- End call-to-action Area -->
+
+
+    <!-- Start home-contact Area -->
+    <section class="home-contact-area section-gap">
+        <div class="container">
+            <div class="row d-flex justify-content-center">
+            <div class="menu-content pb-70 col-lg-8 home-area-title">
+                <div class="title text-center">
+                    <h1 class="mb-10 text-white">Keep in Touch with us</h1>
+                    <p>LCD screens are uniquely modern in style, and the liquid crystals that make them work have allowed humanity to create slimmer, more portable technology.</p>
+                </div>
+            </div>
+            </div>
+            <div class="row">
+                {% for i in address %}
+                <div class="col-lg-4 d-flex flex-column address-wrap">
+                    <div class="single-contact-address d-flex flex-row">
+                        <div class="icon">
+                            <i class="ti-map-alt"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h5>All Inquiris</h5>
+                            <p>{{ i.address }}</p>
+                        </div>
+                    </div>
+                    <div class="single-contact-address d-flex flex-row">
+                        <div class="icon">
+                            <i class="ti-headphone-alt"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h5 class="phn">{{ i.telephonnumber }}</h5>
+                            <p>Mon to Fri 9am to 6 pm</p>
+                        </div>
+                    </div>
+                    <div class="single-contact-address d-flex flex-row">
+                        <div class="icon">
+                             <i class="ti-email"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h5>{{ i.email }}</h5>
+                            <p>Send us your query anytime!</p>
+                        </div>
+                    </div>                                                      
+                </div>
+                {% endfor %}
+                <div class="col-lg-8">
+                    <form id="ourform" action="#" method="post" class="form-area contact-form text-right">
+                        {% csrf_token %}
+                        <div class="row">   
+                            <div class="col-lg-6 form-group">
+                                {{ form.name }}
+                                {{ form.email }}
+                                {{ form.subject }}
+                            </div>
+                            <div class="col-lg-6 form-group">
+                                {{ form.message }}
+                            </div>
+                            <div class="col-lg-12">
+                                <button class="contact-btn genric-btn primary align-items-center text-uppercase" type="submit" style="float: right;">Send Message<span class="lnr lnr-arrow-right"></span></button>
+                                <div class="alert-msg" style="text-align: left;"></div>                        
+                            </div>
+                        </div>
+                    </form> 
+                </div>
+            </div>
+        </div>    
+    </section>
+    <!-- End home-contact Area -->
+</div>
+
+        <!-- start footer Area -->
+        <footer class="footer-area">
+            <img class="pattern-right" src="{% static 'img/pattern-right.png' %} " alt="">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-3  col-md-6 col-sm-6">
+                        <div class="single-footer-widget">
+                            <h4>About Us</h4>
+                            {% for i in aboutus %}
+                            <p>
+                               {{ i.description }}
+                            </p>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    <div class="col-lg-2  col-md-6 col-sm-6">
+                        <div class="single-footer-widget">
+                                <h4>Resources</h4>
+                            <ul class="menu-list">
+                                {% for i in poost %}
+                                    <li><a href="{% url 'post' i.id %}">{{ i.posttitle }}</a></li>
+                                {% endfor %}
+                            </ul>
+
+                        </div>
+                    </div>
+                    <div class="col-lg-2  col-md-6 col-sm-6">
+                        <div class="single-footer-widget">
+                            <h4>Guide</h4>
+                            <ul class="menu-list">
+                                <li><a href="{% url 'event' %}">Event</a></li>
+                                <li><a href="{% url 'emerging_tecnologies' %}">Career</a></li>
+                                <li><a href="{% url 'contact' %}">Contact</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-5  col-md-6 col-sm-6">
+                        <div class="single-footer-widget">
+                            <h4>Newsletter</h4>
+                            <p>You can trust us. we only send  offers, not a single spam.</p>
+                            <div class="d-flex flex-row" id="mc_embed_signup">
+                                <form id="" action="#" method="POST" class="form-area contact-form text-right">
+                            {% csrf_token %}
+                            <div class="row">
+                            <div class="col-lg-6 form-group">
+                                {{ form.email }}
+                            </div>
+                            <div class="col-lg-12">
+                                <button class="contact-btn genric-btn primary align-items-center text-uppercase" type="submit" style="float: right;">Send Message<span class="lnr lnr-arrow-right"></span></button>
+                                <div class="alert-msg" style="text-align: left;"></div>
+                            </div>
+                            </div>
+                            </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-bottom row align-items-center">
+                    <p class="footer-text m-0 col-lg-6 col-md-12">Copyright © 2018 All rights reserved to <a href="">Code Themes</a></p>
+                    <div class="footer-social col-lg-6 col-md-12">
+                        <a href="#"><i class="fa fa-facebook"></i></a>
+                        <a href="#"><i class="fa fa-twitter"></i></a>
+                        <a href="#"><i class="fa fa-dribbble"></i></a>
+                        <a href="#"><i class="fa fa-behance"></i></a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- End footer Area-->
+        <script src="{% static 'js/vendor/jquery-2.2.4.min.js' %}"></script>
+        <script src="{% static 'js/popper.min.js' %}"></script>
+        <script src="{% static 'js/vendor/bootstrap.min.js' %}"></script>
+        <!--<script src="{% static 'https://maps.googleapis.com/maps/api/js?key=AIzaSyBhOdIF3Y9382fqJYt5I_sswSrEw5eihAA' %}"></script>-->
+        <script src="{% static 'js/superfish.min.js' %}"></script>
+        <script src="{% static 'js/jquery.ajaxchimp.min.js' %}"></script>
+        <script src="{% static 'js/jquery.magnific-popup.min.js' %}"></script>
+        <script src="{% static 'js/owl.carousel.min.js' %}"></script>
+        <script src="{% static 'js/jquery.tabs.min.js' %}"></script>
+        <script src="{% static 'js/mn-accordion.js' %}"></script>
+        <script src="{% static 'js/jquery.nice-select.min.js' %}"></script>
+        <!--<script src="{% static 'js/mail-script.js' %}"></script>-->
+        <script src="{% static 'js/main.js' %}"></script>
+
+    </body>
+</html> 

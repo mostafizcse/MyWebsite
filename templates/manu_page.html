@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block header %}
+<!-- Start page-header Area -->
+<section class="page-header-area">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6 page-header-left">
+                <h2></h2>
+                <p>
+                    Connect everyting everywhere...
+                </p>
+            </div>
+            <div class="col-lg-6 page-header-right">
+                <ul>
+                    <li><a href="{% url 'index' %}">Home</a> <span class="lnr lnr-arrow-right"></span></li>
+                    <li><a href=""></a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- End page-header Area -->
+{% endblock %}
+
+{% block content %}
+<!-- Start page-content Area -->
+<section class="page-content-area">
+    <div class="container">
+        <p>{{ menu_details.m_title }}</p>
+        <p>{{ menu_details.description }}</p>
+    </div>    
+</section>
+<!-- End page-content Area -->
+ {% endblock %}

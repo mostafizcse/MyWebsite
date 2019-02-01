@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block header %}
+<!-- Start page-header Area -->
+<section class="page-header-area">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6 page-header-left">
+                <h2>CAREERS</h2>
+                <p>
+                    Are you interested in joining a smart, innovative, entrepreneurial and a fun organization? Let's talk.
+                </p>
+            </div>
+            <div class="col-lg-6 page-header-right">
+                <ul>
+                    <li><a href="{% url 'index' %}">Home</a> <span class="lnr lnr-arrow-right"></span></li>
+                    <li><a href="{% url 'careers' %}">Careers</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+
+{% block content %}
+<!-- Start page-content Area
+ vacancy = models.CharField(max_length=40)
+    job_hours = models.CharField(max_length=200)
+    job_locaton = models.CharField(max_length=300)
+    job_title = models.CharField(max_length=600)
+    job_description = models.TextField()
+    responsibility = models.TextField()
+    qualifications = models.TextField()
+    education = models.CharField(max_length=500)
+    salary = models.CharField(max_length=200)
+    other_benefits = models.CharField(max_length=400)
+    last_date = models.DateField()
+-->
+<section class="page-content-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <h2>{{ cariar_details.job_title }}</h2><br>
+                {{ cariar_details.description|safe }}
+            </div>
+        </div>
+    </div>    
+</section>
+<!-- End page-content Area -->
+ {% endblock %}

@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block stylesheet %}
+ {% endblock %}
+<!-- Start page-content Area -->
+    {% block header %}
+<!-- Start page-header Area -->
+<section class="page-header-area">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6 page-header-left">
+                <h2>EVENTS</h2>
+                <p>
+                    We hope to see you at one of these events...
+                </p>
+            </div>
+            <div class="col-lg-6 page-header-right">
+                <ul>
+                    <li><a href="{% url 'index' %}">Home</a> <span class="lnr lnr-arrow-right"></span></li>
+                    <li><a href="{% url 'event' %}">Event</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- End page-header Area -->
+    {% endblock %}
+{% block content %}
+<!-- Start page-content Area -->
+
+                 <!-- Start table-variation Area -->
+                    <section class="table-variation-area area-gap">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-lg-10 table-left">
+                                    <table class="table table-striped">
+                                        <thead>
+                                            <tr>
+                                                <th> <input type="checkbox" name="name" value="value"></th>
+                                                <th>Event</th>
+                                                <th>Location</th>
+                                                <th>Date</th>
+                                                <th></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            {% for i in fullevent %}
+                                                 <tr>
+                                                    <th> <input type="checkbox" name="name" value="value"></th>
+                                                    <td>{{ i.event }}</td>
+                                                    <td>{{ i.location }}</td>
+                                                    <td>{{ i.date }}</td>
+                                                    <td>
+                                                        <a href="#"><img src="{% static 'img/elements/edit.png' %}" alt=""></a>
+                                                    </td>
+                                                 </tr>
+                                            {% endfor %}
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            </div>
+                    </section>
+                    <!-- End table-variation Area -->
+
+<!-- End page-content Area -->
+ {% endblock %}
+{% block script %}
+ {% endblock %}
+

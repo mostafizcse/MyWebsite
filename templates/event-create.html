@@ -1,0 +1,56 @@
+{% extends 'dashbord-base.html' %}
+{% load static %}
+{% block content %}
+<!-- Start page-content Area -->
+
+<section class="page-content-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+               <form action="" method="post">
+                    {% csrf_token %}
+                    {{ myfrom.media }}
+                    {{ myfrom.as_p }}
+                <button type="submit">Submit</button>
+               </form>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End page-content Area -->
+ {% endblock %}
+
+{% block edit %}
+
+<!-- Start table-variation Area -->
+<!-- Start table-variation Area -->
+<section class="table-variation-area area-gap">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-10 table-left">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th> <input type="checkbox" name="name" value="value"></th>
+                            <th>Tital</th>
+                            <th>Posted On</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for i in fullevent %}
+                             <tr>
+                                <th> <input type="checkbox" name="name" value="value"></th>
+                                <td>{{ i.event }}</td>
+                                <td>{{ i.date }}</td>
+                                <td><a href="{% url 'delete' pid=i.id %}">Delete</a>||<a href="{% url 'update' pid=i.id %}">Edite</a></td>
+                             </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        </div>
+</section>
+
+{% endblock %}
